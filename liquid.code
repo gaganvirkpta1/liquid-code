@@ -1,0 +1,74 @@
+<div class="home-logo-list">
+<div class="container">
+
+  <div class="pic-slider-ltr pic-slider-{{ section.id }}">
+    {%- for block in section.blocks -%}
+      <div class="pic-grid__item" {{ block.shopify_attributes }}>
+        <a href="{{ block.settings.feat_link }}" class="action_button">
+          <div class="pic-image-item">
+            {%- if block.settings.image != blank -%}
+                <img src="{{ block.settings.image | img_url:'master' }}" alt="{{ block.settings.image.alt }}">
+            {%- else -%}
+              <div class="image-wrap text-spacing">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+            {%- endif -%}         
+          </div>
+        </a>
+      </div>
+    {%- endfor -%}
+  </div>
+
+
+  
+
+  
+</div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Home Logo List",
+    "class": "index-section",
+    "settings": [
+      
+     
+
+    ],
+    "blocks": [
+      {
+        "type": "image_block",
+        "name": "Column",
+        "settings": [
+        
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+    "type": "url",
+    "id": "feat_link",
+    "label": "Btn link"
+    }
+       
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Home Logo List",
+        "blocks": [
+          {
+            "type": "image_block"
+          },
+          {
+            "type": "image_block"
+          },
+          {
+            "type": "image_block"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
